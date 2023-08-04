@@ -105,4 +105,26 @@ $countries = array(
     "UK" => "United Kingdom",
     "VA" => "Vatican City"
 );
+$selectOptions = '';
+foreach( $countries as $code => $country){
+    $selectOptions .= "<option value='$code'>$country</option>\n";
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="process_form.php" method="post">
+        <label for="country">Select a country:</label>
+        <select id="country" name="country">
+            <?php echo $selectOptions; ?>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
